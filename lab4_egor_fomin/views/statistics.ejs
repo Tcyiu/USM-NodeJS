@@ -1,0 +1,13 @@
+<%- include('partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Обзор базы данных</p><h1>Статистика</h1></div></section>
+<div class="stats-grid"><article class="stat-card card"><p>Преподавателей</p><strong><%= teacherCount %></strong></article><article class="stat-card card"><p>Курсов</p><strong><%= courseCount %></strong></article></div>
+<section class="card content-card"><h2>Курсы по семестрам</h2><div class="table-wrap"><table>
+    <thead><tr><th>Семестр</th><th>Количество курсов</th></tr></thead><tbody><% semesterCounts.forEach((item) => { %><tr><td data-label="Семестр"><%= item.semester %></td><td data-label="Количество курсов"><%= item.count %></td></tr><% }) %></tbody>
+</table></div></section>
+<section class="card content-card"><h2>Курсы у преподавателей</h2>
+    <% if (teacherStatistics.length) { %><div class="table-wrap"><table>
+        <thead><tr><th>Преподаватель</th><th>Количество курсов</th></tr></thead><tbody><% teacherStatistics.forEach((item) => { %><tr><td data-label="Преподаватель"><a href="/teachers/<%= item.id %>"><%= item.name %></a></td><td data-label="Количество курсов"><%= item.courseCount %></td></tr><% }) %></tbody>
+    </table></div><% if (mostCoursesTeacher) { %><p class="highlight">Больше всего курсов: <strong><%= mostCoursesTeacher.name %></strong> (<%= mostCoursesTeacher.courseCount %>)</p><% } %>
+    <% } else { %><p class="muted">Преподаватели не найдены.</p><% } %>
+</section>
+<%- include('partials/footer') %>

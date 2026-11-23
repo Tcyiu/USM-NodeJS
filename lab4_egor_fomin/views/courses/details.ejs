@@ -1,0 +1,11 @@
+<%- include('../partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Информация о курсе</p><h1><%= course.title %></h1></div><a class="button button-edit" href="/courses/<%= course.id %>/edit">Редактировать</a></section>
+<section class="course-details card"><dl>
+    <div><dt>Кредиты</dt><dd><%= course.credits %></dd></div>
+    <div><dt>Семестр</dt><dd><%= course.semester %></dd></div>
+    <div><dt>Преподаватель</dt><dd><a href="/teachers/<%= course.teacher.id %>"><%= course.teacher.name %></a></dd></div>
+    <div><dt>Email преподавателя</dt><dd><%= course.teacher.email %></dd></div>
+    <div><dt>Кафедра</dt><dd><%= course.teacher.department %></dd></div>
+    <div class="description-row"><dt>Описание</dt><dd><%= course.description %></dd></div>
+</dl><a class="button button-secondary" href="/courses">К списку курсов</a></section>
+<%- include('../partials/footer') %>
