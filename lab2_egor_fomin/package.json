@@ -1,0 +1,21 @@
+{
+  "name": "lab2_egor_fomin",
+  "version": "1.0.0",
+  "description": "MVC REST API for books and authors, built with Node.js and Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mvc",
+    "rest-api"
+  ],
+  "author": "Egor Fomin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
