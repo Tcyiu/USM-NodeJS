@@ -1,0 +1,11 @@
+<%- include('../partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Преподаватель</p><h1><%= title %></h1></div></section>
+<%- include('../partials/errors', { errors }) %>
+<form class="course-form card" action="<%= action %>" method="POST">
+    <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" value="<%= teacher.name || '' %>" required></div>
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" value="<%= teacher.email || '' %>" required></div>
+    <div class="field"><label for="department">Кафедра</label><input id="department" name="department" type="text" value="<%= teacher.department || '' %>" required></div>
+    <div class="field"><label for="academicDegree">Учёная степень</label><input id="academicDegree" name="academicDegree" type="text" value="<%= teacher.academicDegree || '' %>" required></div>
+    <div class="actions"><button class="button button-primary" type="submit"><%= submitLabel %></button><a class="button button-secondary" href="/teachers">Отмена</a></div>
+</form>
+<%- include('../partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('../partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Курс</p><h1><%= title %></h1></div></section>
+<%- include('../partials/errors', { errors }) %>
+<form class="course-form card" action="<%= action %>" method="POST">
+    <div class="field"><label for="title">Название курса</label><input id="title" name="title" type="text" value="<%= course.title || '' %>" required></div>
+    <div class="form-grid">
+        <div class="field"><label for="credits">Количество кредитов</label><input id="credits" name="credits" type="number" min="1" step="1" value="<%= course.credits || '' %>" required></div>
+        <div class="field"><label for="semester">Семестр</label><select id="semester" name="semester" required>
+            <option value="">Выберите семестр</option>
+            <% for (let number = 1; number <= 8; number += 1) { %><option value="<%= number %>" <%= String(course.semester || '') === String(number) ? 'selected' : '' %>><%= number %></option><% } %>
+        </select></div>
+    </div>
+    <div class="field"><label for="teacherId">Преподаватель</label><select id="teacherId" name="teacherId" required>
+        <option value="">Выберите преподавателя</option>
+        <% teachers.forEach((teacher) => { %><option value="<%= teacher.id %>" <%= String(course.teacherId || '') === String(teacher.id) ? 'selected' : '' %>><%= teacher.name %> — <%= teacher.department %></option><% }) %>
+    </select><% if (!teachers.length) { %><small>Сначала добавьте преподавателя.</small><% } %></div>
+    <div class="field"><label for="description">Описание</label><textarea id="description" name="description" rows="5" required><%= course.description || '' %></textarea></div>
+    <div class="actions"><button class="button button-primary" type="submit" <%= teachers.length ? '' : 'disabled' %>><%= submitLabel %></button><a class="button button-secondary" href="/courses">Отмена</a></div>
+</form>
+<%- include('../partials/footer') %>

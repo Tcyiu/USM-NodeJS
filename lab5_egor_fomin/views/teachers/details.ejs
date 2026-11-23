@@ -1,0 +1,9 @@
+<%- include('../partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Преподаватель</p><h1><%= teacher.name %></h1></div><% if (currentUser && currentUser.role === 'admin') { %><a class="button button-edit" href="/teachers/<%= teacher.id %>/edit">Редактировать</a><% } %></section>
+<section class="course-details card">
+    <dl><div><dt>Email</dt><dd><%= teacher.email %></dd></div><div><dt>Кафедра</dt><dd><%= teacher.department %></dd></div><div><dt>Учёная степень</dt><dd><%= teacher.academicDegree %></dd></div><div><dt>Количество курсов</dt><dd><%= teacher.courses.length %></dd></div></dl>
+    <h2>Курсы преподавателя</h2>
+    <% if (teacher.courses.length) { %><ul class="course-list"><% teacher.courses.forEach((course) => { %><li><a href="/courses/<%= course.id %>"><%= course.title %></a> — <%= course.credits %> кредитов, семестр <%= course.semester %></li><% }) %></ul><% } else { %><p class="muted">У преподавателя пока нет курсов.</p><% } %>
+    <a class="button button-secondary" href="/teachers">К списку преподавателей</a>
+</section>
+<%- include('../partials/footer') %>

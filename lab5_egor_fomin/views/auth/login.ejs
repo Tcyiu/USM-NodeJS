@@ -1,0 +1,9 @@
+<%- include('../partials/header', { title }) %>
+<section class="page-heading"><div><p class="eyebrow">Авторизация</p><h1>Вход</h1></div></section>
+<%- include('../partials/errors', { errors }) %>
+<form class="course-form card" action="/login" method="POST">
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" value="<%= values.email || '' %>" required autocomplete="email"></div>
+    <div class="field"><label for="password">Пароль</label><input id="password" name="password" type="password" required autocomplete="current-password"></div>
+    <div class="actions"><button class="button button-primary" type="submit">Войти</button><a class="button button-secondary" href="/register">Регистрация</a></div>
+</form>
+<%- include('../partials/footer') %>
