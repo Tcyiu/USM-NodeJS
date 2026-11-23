@@ -1,0 +1,23 @@
+<%- include('../partials/header', { title }) %>
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">Информация о дисциплине</p>
+        <h1><%= course.title %></h1>
+    </div>
+    <div class="actions">
+        <a class="button button-secondary" href="/courses">К списку курсов</a>
+        <a class="button button-edit" href="/courses/<%= course.id %>/edit">Редактировать</a>
+    </div>
+</div>
+<section class="course-details card">
+    <dl>
+        <div><dt>Преподаватель</dt><dd><%= course.teacher %></dd></div>
+        <div><dt>Количество кредитов</dt><dd><%= course.credits %></dd></div>
+        <div><dt>Семестр</dt><dd><%= course.semester %></dd></div>
+        <div class="description-row"><dt>Описание</dt><dd><%= course.description %></dd></div>
+    </dl>
+    <form action="/courses/<%= course.id %>/delete" method="POST" onsubmit="return confirm('Удалить этот курс?')">
+        <button class="button button-delete" type="submit">Удалить курс</button>
+    </form>
+</section>
+<%- include('../partials/footer') %>

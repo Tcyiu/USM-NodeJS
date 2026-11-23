@@ -1,0 +1,9 @@
+<%- include('../partials/header', { title }) %>
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">Новая дисциплина</p>
+        <h1>Добавить курс</h1>
+    </div>
+</div>
+<%- include('../partials/courseForm', { course, errors, action: '/courses', submitLabel: 'Добавить курс' }) %>
+<%- include('../partials/footer') %>

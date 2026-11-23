@@ -1,0 +1,43 @@
+<% if (errors.length > 0) { %>
+    <div class="error-box" role="alert">
+        <p>Проверьте введённые данные:</p>
+        <ul>
+            <% errors.forEach((error) => { %>
+                <li><%= error %></li>
+            <% }) %>
+        </ul>
+    </div>
+<% } %>
+<form class="course-form card" action="<%= action %>" method="POST">
+    <div class="field">
+        <label for="title">Название дисциплины</label>
+        <input id="title" name="title" type="text" value="<%= course.title || '' %>" required>
+    </div>
+    <div class="field">
+        <label for="teacher">Преподаватель</label>
+        <input id="teacher" name="teacher" type="text" value="<%= course.teacher || '' %>" required>
+    </div>
+    <div class="form-grid">
+        <div class="field">
+            <label for="credits">Количество кредитов</label>
+            <input id="credits" name="credits" type="number" min="0.01" step="any" value="<%= course.credits || '' %>" required>
+        </div>
+        <div class="field">
+            <label for="semester">Семестр</label>
+            <select id="semester" name="semester" required>
+                <option value="">Выберите семестр</option>
+                <% for (let number = 1; number <= 8; number += 1) { %>
+                    <option value="<%= number %>" <%= String(course.semester || '') === String(number) ? 'selected' : '' %>><%= number %></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+    <div class="field">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description" rows="5" required><%= course.description || '' %></textarea>
+    </div>
+    <div class="actions">
+        <button class="button button-primary" type="submit"><%= submitLabel %></button>
+        <a class="button button-secondary" href="/courses">Отмена</a>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+<%- include('partials/header', { title }) %>
+<section class="message-page card">
+    <p class="status-code">404</p>
+    <h1>404 Not Found</h1>
+    <p>Запрошенная страница или курс не найдены.</p>
+    <p class="muted">Запрошенный URL: <code><%= requestedUrl %></code></p>
+    <a class="button button-primary" href="/courses">Вернуться к списку курсов</a>
+</section>
+<%- include('partials/footer') %>

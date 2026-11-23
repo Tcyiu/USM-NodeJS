@@ -1,0 +1,22 @@
+{
+  "name": "lab3_egor_fomin",
+  "version": "1.0.0",
+  "description": "Система управления учебными курсами на Express.js и EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "ejs",
+    "mvc"
+  ],
+  "author": "Egor Fomin",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
